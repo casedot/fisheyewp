@@ -70,6 +70,8 @@
 $global-font-size: 100%;
 $global-width: rem-calc(1200);
 $global-lineheight: 1.5;
+$fisheye1: #f05a28;
+$fisheye2: #f7931d;
 $foundation-palette: (
   primary: #1779ba,
   secondary: #767676,
@@ -81,7 +83,7 @@ $light-gray: #e6e6e6;
 $medium-gray: #cacaca;
 $dark-gray: #8a8a8a;
 $black: #0a0a0a;
-$white: #fefefe;
+$white: #fff;
 $body-background: $white;
 $body-font-color: $black;
 $body-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
@@ -168,7 +170,7 @@ $code-font-weight: $global-weight-normal;
 $code-background: $light-gray;
 $code-border: 1px solid $medium-gray;
 $code-padding: rem-calc(2 5 1);
-$anchor-color: $primary-color;
+$anchor-color: $fisheye1;
 $anchor-color-hover: scale-color($anchor-color, $lightness: -14%);
 $anchor-text-decoration: none;
 $anchor-text-decoration-hover: none;
@@ -815,7 +817,7 @@ $thumbnail-radius: $global-radius;
 // 53. Title Bar
 // -------------
 
-$titlebar-background: $dark-nav-color;
+$titlebar-background: $fisheye2;
 $titlebar-color: $white;
 $titlebar-padding: 0.5rem;
 $titlebar-text-font-weight: bold;
@@ -842,8 +844,8 @@ $tooltip-radius: $global-radius;
 // -----------
 
 $topbar-padding: 0rem;
-$topbar-background: $dark-nav-color;
-$topbar-submenu-background: $topbar-background;
+$topbar-background: $fisheye2;
+//$topbar-submenu-background: $topbar-background;
 $topbar-title-spacing: 0.5rem 1rem 0.5rem 0;
 $topbar-input-width: 200px;
 $topbar-unstack-breakpoint: medium;
