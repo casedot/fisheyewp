@@ -1,13 +1,16 @@
 // Navigation breakpoints
 .mobile-menu,
 .site-title-bar {
-  @include hide-for(medium);
+  @include hide-for(xxlarge);
 }
 
-.desktop-menu,
-.site-navigation .top-bar-left {
-  @include show-for(medium);
+.site-navigation {
+  display: none;
 }
+// .desktop-menu,
+// .site-navigation .top-bar-left {
+//   @include show-for(small);
+// }
 
 // Site title
 .site-desktop-title a {
@@ -35,10 +38,22 @@
 
 }
 
+.title-bar {
+  background: linear-gradient(165deg, #f7931d, #f05a28);
+  background-size: 100%;
+
+  .title-bar-left, .title-bar-right {
+    z-index: 990;
+  }
+}
 .title-bar-title {
   a {
     font-size: 1rem;
     color: #B9B9B9;
+
+    svg {
+      height: 44px;
+    }
   }
 }
 
@@ -53,18 +68,24 @@
 // Tablet and desktop menu
 
 .top-bar {
-  background: linear-gradient(165deg, #f7931d, #f05a28);
-  background-size: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: #F2F6F8;
+  z-index: 950;
 
   ul {
     background: none;
   }
 
   .top-bar-title a {
+    display: block;
     font-size: 1rem;
     color: $white;
     padding-left: 1rem;
-    line-height: 1.8;
+    line-height: 1;
   }
 
   .menu a, .menu .is-active > a {
