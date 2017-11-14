@@ -1,7 +1,7 @@
 // Navigation breakpoints
 .mobile-menu,
 .site-title-bar {
-  @include hide-for(xxlarge);
+  @include hide-for(none);
 }
 
 .site-navigation {
@@ -53,6 +53,9 @@
 
     svg {
       height: 44px;
+      .cls-1, .cls-2, .cls-3, .cls-4, .cls-5, .cls-6, .cls-7 {
+        fill: #fff;
+      }      
     }
   }
 }
