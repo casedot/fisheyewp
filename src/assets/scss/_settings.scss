@@ -72,6 +72,8 @@ $global-width: rem-calc(1200);
 $global-lineheight: 1.5;
 $fisheye1: #f05a28;
 $fisheye2: #f7931d;
+$fisheyelightgray: #F2F6F8;
+$fisheyedarkgray: #6E7071;
 $foundation-palette: (
   primary: #1779ba,
   secondary: #767676,
@@ -86,7 +88,7 @@ $black: #0a0a0a;
 $white: #fff;
 $body-background: $white;
 $body-font-color: $black;
-$body-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+$body-font-family: 'PT Sans', arial, sans-serif;
 $body-antialiased: true;
 $global-margin: 1rem;
 $global-padding: 1rem;
@@ -134,7 +136,7 @@ $block-grid-max: 8;
 // 4. Base Typography
 // ------------------
 
-$header-font-family: $body-font-family;
+$header-font-family: 'Pathway Gothic One', sans-serif;
 $header-font-weight: $global-weight-normal;
 $header-font-style: normal;
 $font-family-monospace: Consolas, 'Liberation Mono', Courier, monospace;
