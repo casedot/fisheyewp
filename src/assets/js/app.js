@@ -11,3 +11,7 @@ import Foundation from 'foundation-sites';
 import './lib/demosite';
 
 $(document).foundation();
+
+$("#site-navi").on("on.zf.toggler off.zf.toggler", function(e) {
+    $(".title-bar-title a svg path[class*='cls-']").toggleClass("fillwhite");
+});

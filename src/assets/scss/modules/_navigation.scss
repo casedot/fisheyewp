@@ -1,137 +1,214 @@
 // Navigation breakpoints
 .mobile-menu,
 .site-title-bar {
-  @include hide-for(none);
+    @include hide-for(none);
 }
 
 .site-navigation {
-  display: none;
+    display: none;
 }
+
 // .desktop-menu,
 // .site-navigation .top-bar-left {
 //   @include show-for(small);
 // }
-
 // Site title
 .site-desktop-title a {
-  font-weight: bold;
+    font-weight: bold;
 }
 
 // Mobile menu
 .mobile-menu {
-  display: none; // prevents repaint caused by JS hiding menu onload
+    display: none; // prevents repaint caused by JS hiding menu onload
 }
 
 .off-canvas {
-  > ul.menu {
-    height: 100vh;
-    padding: 1rem;
-
-    a {
-      color: $white;
-      font-weight: 600;
-      font-size: rem-calc(15);
+    >ul.menu {
+        height: 100vh;
+        padding: 1rem;
+        a {
+            color: $white;
+            font-weight: 600;
+            font-size: rem-calc(15);
+        }
     }
-  }
-
-  .menu .active > a { background-color: #ccc; }
-
+    .menu .active>a {
+        background-color: #ccc;
+    }
 }
 
 .title-bar {
-  background: linear-gradient(165deg, #f7931d, #f05a28);
-  background-size: 100%;
-
-  .title-bar-left, .title-bar-right {
-    z-index: 990;
-  }
-}
-.title-bar-title {
-  a {
-    font-size: 1rem;
-    color: #B9B9B9;
-
-    svg {
-      height: 44px;
-      .cls-1, .cls-2, .cls-3, .cls-4, .cls-5, .cls-6, .cls-7 {
-        fill: #fff;
-      }      
+    background: linear-gradient(165deg, #f7931d, #f05a28);
+    background-size: 100%;
+    .title-bar-left,
+    .title-bar-right {
+        z-index: 990;
     }
-  }
+}
+
+.title-bar-title {
+    a {
+        font-size: 1rem;
+        color: #B9B9B9;
+        svg {
+            height: 44px;
+            .fillwhite {
+                fill: #fff;
+            }
+        }
+    }
 }
 
 .mobile-menu,
 .mobile-off-canvas-menu {
-
-  .menu .is-active > a {
-    background-color: lighten($dark-nav-color, 5%);
-  }
+    .menu .is-active>a {
+        background-color: lighten($dark-nav-color, 5%);
+    }
 }
 
 // Tablet and desktop menu
-
 .top-bar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  background: #F2F6F8;
-  z-index: 950;
-
-  ul {
-    background: none;
-  }
-
-  .top-bar-title a {
-    display: block;
-    font-size: 1rem;
-    color: $white;
-    padding-left: 1rem;
-    line-height: 1;
-  }
-
-  .menu a, .menu .is-active > a {
-    color: #e6e6e6;
-    padding-top: 0;
-    padding-bottom: 0;
-    font-weight: bold;
-    font-size: 0.8rem;
-    line-height: 1;
-    background: none;
-
-    &:hover:not(.button) {
-      //background-color: #42525D;
-      text-decoration: underline;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: #F2F6F8;
+    z-index: 950;
+    ul {
+        background: none;
     }
-  }
+    .top-bar-title a {
+        display: block;
+        font-size: 1rem;
+        color: $white;
+        padding-left: 1rem;
+        line-height: 1;
+    }
+    .menu-container {
+        @include xy-grid-container;
+    }
+    .menu {
+        @include breakpoint(small) {
+            @include xy-cell(8);
+            @include xy-cell-offset(2);
+            padding-top: 90px;
+        }
+    }
+    .menu a,
+    .menu .is-active>a {
+        color: #e6e6e6;
+        padding-top: 0;
+        padding-bottom: 0;
+        font-weight: bold;
+        font-size: 0.8rem;
+        line-height: 1;
+        background: none;
+        &:hover:not(.button) {
+            //background-color: #42525D;
+            text-decoration: underline;
+        }
+    }
+    .menu .active>a {
+        background-color: #ccc;
+    }
+    .menu>li:not(.menu-text)>a {
+        padding: 1rem;
+    }
+    //.menu li:not(:last-child) { border-right: 1px solid #4e4e4e; }
+    .dropdown.menu .submenu {
+        border: 0;
+    }
+    .dropdown.menu .has-submenu.is-down-arrow a {
+        padding-right: 1rem;
+    }
+    .dropdown.menu .has-submenu.is-down-arrow>a::after {
+        border: 0;
+    }
+    .dropdown.menu:first-child>li.is-dropdown-submenu-parent>a::after {
+        display: none;
+    }
+}
 
-  .menu .active > a { background-color: #ccc; }
-
-  .menu>li:not(.menu-text)>a { padding: 1rem; }
-  //.menu li:not(:last-child) { border-right: 1px solid #4e4e4e; }
-
-  .dropdown.menu .submenu { border: 0; }
-  .dropdown.menu .has-submenu.is-down-arrow a { padding-right: 1rem; }
-  .dropdown.menu .has-submenu.is-down-arrow > a::after { border: 0; }
-  .dropdown.menu:first-child > li.is-dropdown-submenu-parent > a::after { display: none; }
+// Tablet and desktop menu
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: #F2F6F8;
+    z-index: 950;
+    ul {
+        background: none;
+    }
+    .menu-overlay a {
+        display: block;
+        font-size: 1rem;
+        color: $white;
+        padding-left: 1rem;
+        line-height: 1;
+    }
+    .menu-container {
+        @include xy-grid-container;
+    }
+    .menu {
+        @include breakpoint(small) {
+            @include xy-cell(8);
+            @include xy-cell-offset(2);
+            padding-top: 90px;
+        }
+    }
+    .menu a,
+    .menu .is-active>a {
+        color: #e6e6e6;
+        padding-top: 0;
+        padding-bottom: 0;
+        font-weight: bold;
+        font-size: 0.8rem;
+        line-height: 1;
+        background: none;
+        &:hover:not(.button) {
+            //background-color: #42525D;
+            text-decoration: underline;
+        }
+    }
+    .menu .active>a {
+        background-color: #ccc;
+    }
+    .menu>li:not(.menu-text)>a {
+        padding: 1rem;
+    }
+    //.menu li:not(:last-child) { border-right: 1px solid #4e4e4e; }
+    .dropdown.menu .submenu {
+        border: 0;
+    }
+    .dropdown.menu .has-submenu.is-down-arrow a {
+        padding-right: 1rem;
+    }
+    .dropdown.menu .has-submenu.is-down-arrow>a::after {
+        border: 0;
+    }
+    .dropdown.menu:first-child>li.is-dropdown-submenu-parent>a::after {
+        display: none;
+    }
 }
 
 .site-navigation {
-  @include breakpoint(small only) {
-    padding: 0; // prevents container visibility on small screens
-  }
+    @include breakpoint(small only) {
+        padding: 0; // prevents container visibility on small screens
+    }
 }
 
 // WP post navigation
 .post-navigation {
-  @include clearfix;
+    @include clearfix;
 }
 
 .nav-previous {
-  float:left;
+    float: left;
 }
 
 .nav-next {
-  float:right;
+    float: right;
 }
