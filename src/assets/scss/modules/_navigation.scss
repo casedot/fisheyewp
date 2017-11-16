@@ -72,12 +72,10 @@
     left: 0;
     height: 100%;
     width: 100%;
+    padding-top: 92px;
     background: $fisheyelightgray;
-    transition: .4s ease-in-out;
+    
 
-    ul {
-        background: none;
-    }
     .top-bar-title a {
         display: block;
         font-size: 1rem;
@@ -85,17 +83,46 @@
         padding-left: 1rem;
         line-height: 1;
     }
-    .menu-container {
+
+    nav {
         @include xy-grid-container;
     }
-    .menu {
+    .menu-container {
+        @include xy-grid;
+    }
+    
+    .navi-links {
         @include breakpoint(small) {
-            @include xy-cell(8);
-            @include xy-cell-offset(2);
-            display: block;
-            position: relative;
-            padding-top: 90px;
+            @include xy-cell(10);
+            @include xy-cell-offset(1);
         }
+        @include breakpoint(medium) {
+            @include xy-cell(5);
+            @include xy-cell-offset(1);
+        }
+        @include breakpoint(large) {
+            @include xy-cell(4);
+            @include xy-cell-offset(2);
+        }
+    }
+    .navi-contact {
+        @include breakpoint(small) {
+            @include xy-cell(10);
+            @include xy-cell-offset(1);
+        }
+        @include breakpoint(medium) {
+            @include xy-cell(5);
+            @include xy-cell-offset(0);
+        }
+        @include breakpoint(large) {
+            @include xy-cell(4);
+            @include xy-cell-offset(0);
+        }
+    }
+
+    .menu {
+        display: block;
+        position: relative;
     }
     .menu a,
     .menu .is-active>a {
@@ -141,17 +168,19 @@
 .menu-overlay.closed {
     opacity: 0;
     z-index: -1;
+    transition: 0s;
 }
 
 .menu-overlay.open {
     opacity: 1;
     z-index: 950;
+    transition: .4s ease-in-out;
 }
 
-$size: 60px;
-$height: 20px;
-$width: 30px;
-$line-size: 3px;
+$size: 50px;
+$height: 18px;
+$width: 26px;
+$line-size: 2px;
 $line-color: #fff;
 $line-radius: $line-size;
 $to-translate: ($height - $line-size) / 2;
@@ -159,13 +188,15 @@ $bounce: cubic-bezier(.87,-.50,.19,1.50);
 
 .menubtn {
     position: relative;
+    float:right;
     height: $size;
     width: $size;
-    background-color: transparent;
-    cursor: pointer;
     margin: 0;
-    float:right;
+    background-color: transparent;
+    border: solid 1px #fff;
+    border-radius: 50%;
     overflow: hidden;
+    cursor: pointer;
     
     &__icon {
       position: absolute;
@@ -196,6 +227,9 @@ $bounce: cubic-bezier(.87,-.50,.19,1.50);
       }
     }
 
+    &--close5 {
+        transition: width .5s ease-in-out;
+    }
     &--close5 &__line--4,
     &--close5 &__line--5 {
       opacity: 0;
@@ -223,6 +257,10 @@ $bounce: cubic-bezier(.87,-.50,.19,1.50);
                   transform .2s ease-in-out;
     }
     // Open
+    &--close5.open {
+        border-color: $fisheye1;
+        transition: width .5s ease-in-out;
+    }
     &--close5.open &__line--1 {
       width: 0;
       transition: width .2s ease-in-out;
