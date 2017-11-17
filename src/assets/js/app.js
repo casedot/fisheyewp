@@ -20,5 +20,6 @@ $(".menubtn").click(function() {
     $(this).toggleClass('open');
     $(".menu-overlay").toggleClass("open"),
     $(".menu-overlay").toggleClass("closed"),
+    $(".title-bar").toggleClass("transparent"),
     $(".title-bar-title a svg path[class*='cls-']").toggleClass("fillwhite")
 });

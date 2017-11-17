@@ -1,36 +1,55 @@
 // Page header
-body {
-  background: linear-gradient(165deg, #f7931d, #f05a28);
-  background-size: 100%;
-  background-attachment: fixed;
-}
-
-.title-bar { 
-  background: transparent;
+body.home {
+    background: linear-gradient(165deg, #f7931d, #f05a28);
+    background-size: 100%;
+    background-attachment: fixed;
+    .title-bar {
+        background: transparent;
+    }
 }
 
 .splash {
-  @include xy-grid-container;
-  @include xy-grid;
-
-
-  .splash-content {
-    @include xy-cell(10);
-    @include xy-cell-offset(1);
-    padding: 4rem 0;
-    text-align: center;
-  }
-
-  .splash-content .splash-logo {
-    width: 44%;
-    margin: 0 auto;
-
-    svg .fillwhite {                            
-      fill: #fff;
-      //transition: .4s ease-in-out;                
+    @include xy-grid-container;
+    @include xy-grid;
+    .splash-content {
+        @include breakpoint(small) {
+            @include xy-cell(12);
+            padding: 1rem 0 4rem;
+            text-align: center;
+        }
+        @include breakpoint(medium) {
+            @include xy-cell(8);
+            @include xy-cell-offset(2);
+        }
+        h1 {
+            @include breakpoint(small) {}
+            color: $fisheyelightgray;
+            letter-spacing: -2px;
+            margin: 3rem 2rem 1rem;
+        }
+        .button {
+            font-family: $header-font-family;
+            font-size: rem-calc(28);
+            text-transform: uppercase;
+            transition: .25s ease-in-out;
+            &:hover,
+            &:focus {
+                border-color: $fisheye3;
+                color: $fisheye3;
+            }
+        }
     }
-    
-  }
-
-  
+    .splash-content .splash-logo {
+        @include breakpoint(small) {
+            width: 65%;
+            margin: 0 auto;
+        }
+        @include breakpoint(medium) {
+            width: 38%;
+        }
+        svg .fillwhite {
+            fill: #fff;
+            //transition: .4s ease-in-out;                
+        }
+    }
 }

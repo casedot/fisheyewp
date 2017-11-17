@@ -17,7 +17,6 @@
     font-weight: bold;
 }
 
-
 .off-canvas {
     >ul.menu {
         height: 100vh;
@@ -34,23 +33,33 @@
 }
 
 .title-bar {
-    background: linear-gradient(165deg, #f7931d, #f05a28);
-    background-size: 100%;
-    .title-bar-left,
-    .title-bar-right {
-        z-index: 990;
+    position: fixed;
+    width: 100%;
+    z-index: 990;
+
+    .title-bar-bg {
+        background: linear-gradient(165deg, #f7931d, #f05a28);
+        background-size: 100%;    
+        
+        transition: 1s ease-in-out;
+    }
+    &.transparent {
+        background: $fisheyelightgray;
+        
     }
 }
 
+
 .title-bar-title {
     a {
+        display: block;
+        line-height: 1;
         font-size: 1rem;
         color: #B9B9B9;
-        
-        svg {
-            height: 44px;              
 
-            .fillwhite {                            
+        svg {
+            height: 44px;
+            .fillwhite {
                 fill: #fff;
                 //transition: .4s ease-in-out;                
             }
@@ -75,7 +84,6 @@
     padding-top: 92px;
     background: $fisheyelightgray;
     
-
     .top-bar-title a {
         display: block;
         font-size: 1rem;
@@ -83,14 +91,12 @@
         padding-left: 1rem;
         line-height: 1;
     }
-
     nav {
         @include xy-grid-container;
     }
     .menu-container {
         @include xy-grid;
     }
-    
     .navi-links {
         @include breakpoint(small) {
             @include xy-cell(10);
@@ -119,7 +125,6 @@
             @include xy-cell-offset(0);
         }
     }
-
     .menu {
         display: block;
         position: relative;
@@ -132,13 +137,12 @@
         padding-top: 0;
         padding-bottom: 0;
         font-family: $header-font-family;
-        letter-spacing: -1px;
+        letter-spacing: -2px;
         font-weight: normal;
         font-size: 2.2rem;
         line-height: 1.6;
         text-transform: uppercase;
         background: none;
-
         &:hover:not(.button) {
             //background-color: #42525D;
             text-decoration: underline;
@@ -184,11 +188,10 @@ $line-size: 2px;
 $line-color: #fff;
 $line-radius: $line-size;
 $to-translate: ($height - $line-size) / 2;
-$bounce: cubic-bezier(.87,-.50,.19,1.50);
-
+$bounce: cubic-bezier(.87, -.50, .19, 1.50);
 .menubtn {
     position: relative;
-    float:right;
+    float: right;
     height: $size;
     width: $size;
     margin: 0;
@@ -197,64 +200,59 @@ $bounce: cubic-bezier(.87,-.50,.19,1.50);
     border-radius: 50%;
     overflow: hidden;
     cursor: pointer;
-    
     &__icon {
-      position: absolute;
-      width: $width;
-      height: $height;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+        position: absolute;
+        width: $width;
+        height: $height;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
     }
     &__line {
-      position: absolute;
-      left: 0;
-      background-color: $line-color;
-      height: $line-size;
-      width: 100%;
-      border-radius: $line-radius;
-      pointer-events: none;
-      &--1 {
-        top: 0;
-      }
-      &--2 {
-        top: 0;
-        bottom: 0;
-        margin: auto;
-      }
-      &--3 {
-        bottom: 0;
-      }
+        position: absolute;
+        left: 0;
+        background-color: $line-color;
+        height: $line-size;
+        width: 100%;
+        border-radius: $line-radius;
+        pointer-events: none;
+        &--1 {
+            top: 0;
+        }
+        &--2 {
+            top: 0;
+            bottom: 0;
+            margin: auto;
+        }
+        &--3 {
+            bottom: 0;
+        }
     }
-
     &--close5 {
         transition: width .5s ease-in-out;
     }
     &--close5 &__line--4,
     &--close5 &__line--5 {
-      opacity: 0;
-      top: $to-translate;
-      transition: opacity .2s ease-in-out,
-                  transform .2s ease-in-out;
-    }  
+        opacity: 0;
+        top: $to-translate;
+        transition: opacity .2s ease-in-out, transform .2s ease-in-out;
+    }
     &--close5 &__line--1 {
-      transition: width .2s ease-in-out .4s;
+        transition: width .2s ease-in-out .4s;
     }
     &--close5 &__line--2 {
-      transition: width .2s ease-in-out .3s;
+        transition: width .2s ease-in-out .3s;
     }
     &--close5 &__line--3 {
-      transition: width .2s ease-in-out .2s;
+        transition: width .2s ease-in-out .2s;
     }
-    &--close5 &__line--4 { 
-      transform: rotate(45deg) translate3d(-$width,0,0); 
-      transition: opacity .2s ease-in-out .2s, 
-        transform .2s ease-in-out .2s;
+    &--close5 &__line--4 {
+        transform: rotate(45deg) translate3d(-$width, 0, 0);
+        transition: opacity .2s ease-in-out .2s, transform .2s ease-in-out .2s;
     }
-    &--close5 &__line--5 { 
-      transform:  rotate(-45deg) translate3d($width,0,0); 
-      transition: opacity .2s ease-in-out,
-                  transform .2s ease-in-out;
+    &--close5 &__line--5 {
+        transform: rotate(-45deg) translate3d($width, 0, 0);
+        transition: opacity .2s ease-in-out, transform .2s ease-in-out;
     }
     // Open
     &--close5.open {
@@ -262,36 +260,30 @@ $bounce: cubic-bezier(.87,-.50,.19,1.50);
         transition: width .5s ease-in-out;
     }
     &--close5.open &__line--1 {
-      width: 0;
-      transition: width .2s ease-in-out;
+        width: 0;
+        transition: width .2s ease-in-out;
     }
     &--close5.open &__line--2 {
-      width: 0;
-      transition: width .2s ease-in-out .1s;
+        width: 0;
+        transition: width .2s ease-in-out .1s;
     }
     &--close5.open &__line--3 {
-      width: 0;
-      transition: width .2s ease-in-out .2s;
+        width: 0;
+        transition: width .2s ease-in-out .2s;
     }
-    &--close5.open &__line--4 { 
-      opacity: 1;
-      background-color: $fisheye1;
-      transform: rotate(45deg) translate3d(0,0,0); 
-      transition: opacity .2s ease-in-out .2s,
-                  transform .2s ease-in-out .2s,
-                  background-color .2s ease-in-out .2s;
+    &--close5.open &__line--4 {
+        opacity: 1;
+        background-color: $fisheye1;
+        transform: rotate(45deg) translate3d(0, 0, 0);
+        transition: opacity .2s ease-in-out .2s, transform .2s ease-in-out .2s, background-color .2s ease-in-out .2s;
     }
-    &--close5.open &__line--5 { 
-      opacity: 1;
-      background-color: $fisheye1;
-      transform:  rotate(-45deg) translate3d(0,0,0); 
-      transition: opacity .2s ease-in-out .4s,
-                  transform .2s ease-in-out .4s,
-                  background-color .2s ease-in-out .4s;
+    &--close5.open &__line--5 {
+        opacity: 1;
+        background-color: $fisheye1;
+        transform: rotate(-45deg) translate3d(0, 0, 0);
+        transition: opacity .2s ease-in-out .4s, transform .2s ease-in-out .4s, background-color .2s ease-in-out .4s;
     }
 }
-
-
 
 .site-navigation {
     @include breakpoint(small only) {
