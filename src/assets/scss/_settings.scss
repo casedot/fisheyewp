@@ -72,19 +72,18 @@ $fisheye2: #f7931d;
 $fisheye3: #8A373C;
 $fisheye4: #335D86;
 $fisheyelightgray: #F2F6F8;
+$fisheyemedgray: #919495;
 $fisheyedarkgray: #6E7071;
 $fisheyeblack: #1d1d1d;
 $foundation-palette: ( primary: #1779ba, secondary: #767676, success: #3adb76, warning: #ffae00, alert: #cc4b37, );
-$light-gray: #e6e6e6;
-$medium-gray: #cacaca;
-$dark-gray: #8a8a8a;
-$black: #0a0a0a;
+$light-gray: $fisheyelightgray;
+$medium-gray: $fisheyemedgray;
+$dark-gray: $fisheyedarkgray;
+$black: #000;
 $white: #fff;
 $body-background: $white;
-$body-font-color: $black;
-$body-font-family: 'PT Sans',
-arial,
-sans-serif;
+$body-font-color: $fisheyeblack;
+$body-font-family: 'PT Sans', arial, sans-serif;
 $body-antialiased: true;
 $global-margin: 1rem;
 $global-padding: 1rem;
@@ -115,18 +114,29 @@ $grid-column-alias: 'columns';
 $block-grid-max: 8;
 // 4. Base Typography
 // ------------------
-$header-font-family: 'Pathway Gothic One',
-sans-serif;
+$header-font-family: 'Pathway Gothic One', sans-serif;
 $header-font-weight: $global-weight-normal;
 $header-font-style: normal;
-$font-family-monospace: Consolas,
-'Liberation Mono',
-Courier,
-monospace;
-$header-color: inherit;
+$font-family-monospace: 'Consolas', 'Liberation Mono', Courier, monospace;
+$header-color: $fisheyeblack;
 $header-lineheight: 1.1;
 $header-margin-bottom: 0.5rem;
-$header-styles: ( small: ( 'h1': ('font-size': 38), 'h2': ('font-size': 20), 'h3': ('font-size': 19), 'h4': ('font-size': 18), 'h5': ('font-size': 17), 'h6': ('font-size': 16), ), medium: ( 'h1': ('font-size': 48), 'h2': ('font-size': 40), 'h3': ('font-size': 31), 'h4': ('font-size': 25), 'h5': ('font-size': 20), 'h6': ('font-size': 16), ), );
+$header-styles: ( 
+    small: ( 
+        'h1': ('font-size': 38), 
+        'h2': ('font-size': 20), 
+        'h3': ('font-size': 19), 
+        'h4': ('font-size': 18), 
+        'h5': ('font-size': 17), 
+        'h6': ('font-size': 16), ), 
+    medium: ( 
+        'h1': ('font-size': 42), 
+        'h2': ('font-size': 30), 
+        'h3': ('font-size': 24), 
+        'h4': ('font-size': 25), 
+        'h5': ('font-size': 20), 
+        'h6': ('font-size': 16), ), 
+    );
 $header-text-rendering: optimizeLegibility;
 $small-font-size: 80%;
 $header-small-font-color: $medium-gray;

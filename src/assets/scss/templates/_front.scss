@@ -3,14 +3,20 @@ body.home {
     background: linear-gradient(165deg, #f7931d, #f05a28);
     background-size: 100%;
     background-attachment: fixed;
+    
     .title-bar {
-        background: transparent;
+        background: none;
+    }
+
+    .title-bar-bg {
+        display: none;
     }
 }
 
 .splash {
     @include xy-grid-container;
     @include xy-grid;
+
     .splash-content {
         @include breakpoint(small) {
             @include xy-cell(12);
@@ -21,17 +27,29 @@ body.home {
             @include xy-cell(8);
             @include xy-cell-offset(2);
         }
+
         h1 {
-            @include breakpoint(small) {}
-            color: $fisheyelightgray;
-            letter-spacing: -2px;
-            margin: 3rem 2rem 1rem;
+            @include breakpoint(small) {
+                color: $fisheyelightgray;
+                letter-spacing: -2px;
+                margin: 0rem 2rem 1rem;
+            }
+            @include breakpoint(medium) {
+                margin: 3rem 2rem 1rem;
+            }
         }
         .button {
-            font-family: $header-font-family;
-            font-size: rem-calc(28);
-            text-transform: uppercase;
-            transition: .25s ease-in-out;
+            @include breakpoint(small) {
+                font-family: $header-font-family;
+                font-size: rem-calc(28);
+                text-transform: uppercase;
+                transition: .25s ease-in-out;
+                margin-bottom: 4rem;
+            }
+            @include breakpoint(medium) {
+                margin-bottom: 0;
+            }
+
             &:hover,
             &:focus {
                 border-color: $fisheye3;
