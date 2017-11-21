@@ -32,6 +32,14 @@
                 @include xy-cell(10);
                 @include xy-cell-offset(1);
             }
+            @include breakpoint(medium) {
+                @include xy-cell(8);
+                @include xy-cell-offset(2);
+            }
+            @include breakpoint(large) {
+                @include xy-cell(10);
+                @include xy-cell-offset(1);
+            }
             @include breakpoint(xxlarge) {
                 @include xy-cell(12);
                 @include xy-cell-offset(0);
@@ -62,18 +70,53 @@
 
         h3 {
             letter-spacing: -.5px;
+            margin-bottom: 2rem;
         }
 
         .entry-title {
-            position: fixed;            
+            @include breakpoint(small) {
+                position: relative;
+            }     
+            @include breakpoint(large) {
+                position: fixed;                   
+            }        
         }
         .entry-content {
-            padding-top: 5rem;      
+            @include breakpoint(small) {
+                padding-top: 1rem;
+            }   
+            @include breakpoint(large) {
+                padding-top: 5rem;
+            }   
+                 
             
             .page-nav {
-                position: fixed;                   
-                @include xy-cell(4);      
-                margin: 0;
+                @include breakpoint(small) {
+                    position: relative;
+                    margin-bottom: 4rem;
+                    width: 100%;
+
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        width: 100%;
+                        height:2px;
+                        bottom: -1rem;                        
+                        background: linear-gradient(165deg, #f7931d, #f05a28);
+                        background-size: 100%;    
+                    }
+                }
+
+                @include breakpoint(large) {
+                    position: fixed;                   
+                    @include xy-cell(3);      
+                    margin: 0;
+
+                    &::after {
+                        display: none;  
+                    }
+                }
+                
 
                 ul {
                     list-style: none;
@@ -81,28 +124,53 @@
 
 
                     a {
+                        display: block;
+                        position: relative;
                         font-family: $header-font-family;
                         letter-spacing: -.5px;
-                        font-size: rem-calc(24);
-                        color: $fisheyeblack;
+                        font-size: rem-calc(22);
+                        color: $fisheyeblack;                        
+
+                        &::after {
+                            content: '';
+                            position: absolute;
+                            top: rem-calc(12);
+                            right: 0;
+                            width: 0; 
+                            height: 0; 
+                            border-top: rem-calc(5) solid transparent;
+                            border-bottom: rem-calc(5) solid transparent;
+                            border-left: rem-calc(5) solid $fisheyeblack;;
+                        }
 
                         &:hover, &:focus {
-                            color: $fisheye2;
+                            color: $fisheye1;
+
+                            &::after {
+                                border-left: rem-calc(5) solid $fisheye1;;
+                            }
                         }
                     }
                 }
             }
 
             .page-nav-content {
-                @include breakpoint(medium) {
+                @include breakpoint(large) {
                     @include xy-cell(7);
                     @include xy-cell-offset(5);
                 }
                 
                 section {
-                    padding-bottom: 4rem;
-                    margin-bottom: 4rem;
-                    border-bottom: solid 2px $fisheyelightgray;
+                    @include breakpoint(small) {
+                        padding-bottom: 1.5rem;
+                        margin-bottom: 2.5rem;
+                        border-bottom: solid 2px $fisheyelightgray;
+                    }                    
+
+                    @include breakpoint(large) {
+                        padding-bottom: 4rem;
+                        margin-bottom: 4rem;
+                    }                    
                 }
             }
         }
