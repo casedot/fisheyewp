@@ -35,17 +35,15 @@ body.home {
         h1 {
             @include breakpoint(small) {
                 color: $fisheyelightgray;
-                letter-spacing: -2px;
                 margin: 0rem 2rem 1rem;
             }
             @include breakpoint(medium) {
-                margin: 3rem 2rem 1rem;
+                margin: 1rem 2rem 1rem;
             }
         }
         .button {
             @include breakpoint(small) {
-                font-family: $header-font-family;
-                font-size: rem-calc(28);
+                font-size: rem-calc(22);
                 text-transform: uppercase;
                 transition: .25s ease-in-out;
                 margin-bottom: 4rem;
@@ -67,7 +65,7 @@ body.home {
             margin: 0 auto;
         }
         @include breakpoint(medium) {
-            width: 38%;
+            width: 34%;
         }
         svg .fillwhite {
             fill: #fff;

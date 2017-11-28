@@ -20,6 +20,8 @@
 	</div><!-- Close off-canvas content -->
 <?php endif; ?>
 
+</div><!-- close global-container -->
+
 <?php wp_footer(); ?>
 </body>
 </html>

@@ -19,7 +19,7 @@
   </head>
 
   <body <?php body_class(); ?>>
-
+    <div class="global-container">
     <?php if ( get_theme_mod( 'wpt_mobile_menu_layout' ) === 'offcanvas' ) : ?>
       <?php get_template_part( 'template-parts/mobile-off-canvas' ); ?>
         <?php endif; ?>
@@ -51,22 +51,7 @@
                 <div class="menu-container">
                   <div class="navi-links">
                     <?php foundationpress_top_bar_r(); ?>
-                  </div>
-                  <div class="navi-contact">
-                    <ul class="dropdown menu desktop-menu">
-                      <li class="menu-item menu-item-has-children is-dropdown-submenu-parent opens-right">
-                        <a href="#">Contact</a>
-                        <ul class="dropdown menu vertical submenu is-dropdown-submenu first-sub">
-                          <li class="menu-item is-submenu-item">
-                            <a href="#" class="navi-contact-email">shout@fisheyeconsulting.com</a>
-                          </li>
-                          <li class="menu-item is-submenu-item">
-                            <a href="#" class="navi-contact-phone">(949) 123-1234</a>
-                          </li>
-                        </ul>
-                      </li>
-                    </ul>
-                  </div>
+                  </div>                  
                 </div>
               </nav>
             </div>

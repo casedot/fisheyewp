@@ -117,33 +117,12 @@
             @include xy-cell(10);
             @include xy-cell-offset(1);
         }
-        @include breakpoint(medium) {
-            @include xy-cell(5);
-            @include xy-cell-offset(1);
-        }
-        @include breakpoint(large) {
-            @include xy-cell(4);
-            @include xy-cell-offset(2);
-        }
     }
-    .navi-contact {
-        @include breakpoint(small) {
-            @include xy-cell(10);
-            @include xy-cell-offset(1);
-        }
-        @include breakpoint(medium) {
-            @include xy-cell(5);
-            @include xy-cell-offset(0);
-        }
-        @include breakpoint(large) {
-            @include xy-cell(4);
-            @include xy-cell-offset(0);
-        }
-        
-    }
+    
     .menu {
         display: block;
         position: relative;
+        text-align: center;
     }
     .menu a,
     .menu .is-active>a {
@@ -152,8 +131,7 @@
         color: $fisheyedarkgray;
         padding-top: 0;
         padding-bottom: 0;
-        font-family: $header-font-family;
-        letter-spacing: -2px;
+        font-family: $body-font-family;
         font-weight: normal;
         font-size: 2.2rem;
         line-height: 1.6;

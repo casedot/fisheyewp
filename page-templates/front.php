@@ -140,7 +140,7 @@ get_header(); ?>
 		</div>
 		<div class="cell small-12 small-order-1 medium-order-2">
 			<h1>Free analysis, efficient solutions, quality results.</h1>
-			<a href="mailto:shout@fisheyeconsulting.com&subject=Let's%20Discuss%20a%20Project" class="button large">Discuss a Project</a>
+			<a href="mailto:shout@fisheyeconsulting.com&subject=Let's%20Discuss%20a%20Project" class="button large">Discuss Your Project</a>
 		</div>
 	</div>
 	

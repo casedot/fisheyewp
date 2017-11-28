@@ -64,12 +64,10 @@
         h2 {
             font-family: $body-font-family;            
             font-weight: bold;
-            letter-spacing: -1px;
             color: $fisheyeblack;
         }
 
         h3 {
-            letter-spacing: -.5px;
             margin-bottom: 2rem;
         }
 
@@ -78,7 +76,7 @@
                 position: relative;
             }     
             @include breakpoint(large) {
-                position: fixed;                   
+                //position: fixed;                   
             }        
         }
         .entry-content {
@@ -108,8 +106,7 @@
                 }
 
                 @include breakpoint(large) {
-                    position: fixed;                   
-                    @include xy-cell(3);      
+                    @include xy-cell(4);      
                     margin: 0;
 
                     &::after {
@@ -119,6 +116,7 @@
                 
 
                 ul {
+                    position: relative;
                     list-style: none;
                     margin: 0;
 
@@ -126,8 +124,8 @@
                     a {
                         display: block;
                         position: relative;
+                        padding-right: 1rem;
                         font-family: $header-font-family;
-                        letter-spacing: -.5px;
                         font-size: rem-calc(22);
                         color: $fisheyeblack;                        
 
@@ -157,7 +155,7 @@
             .page-nav-content {
                 @include breakpoint(large) {
                     @include xy-cell(7);
-                    @include xy-cell-offset(5);
+                    @include xy-cell-offset(1);
                 }
                 
                 section {
@@ -186,4 +184,8 @@
             margin-top: 1rem;
         }
     }
+}
+
+.edit-link {
+    display: none;
 }
